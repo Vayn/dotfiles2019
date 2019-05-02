@@ -14,6 +14,7 @@ Plug 'lotabout/skim', {
     \ 'dir': '~/.skim',
     \ 'do': './install',
     \ }
+Plug 'lotabout/skim.vim'
 Plug 'RRethy/vim-hexokinase'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -477,5 +478,25 @@ nnoremap <silent> gd :call LanguageClient_textDocument_definition()
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()
 
 " End: LanguageClient-neovim 2}}}
+
+" skim.vim {{{2
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler 
+" End: skim.vim 2}}}
 
 " End: Plugins 1}}}
