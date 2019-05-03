@@ -16,7 +16,6 @@ edit:insert:binding[Alt-Backspace] = $edit:kill-small-word-left~
 
 edit:insert:binding[Alt-d] = $edit:kill-small-word-right~
 
-
 use github.com/zzamboni/elvish-modules/alias
 
 alias:new ls e:exa --color-scale --git --group-directories-first
@@ -87,6 +86,9 @@ use github.com/iwoloschin/elvish-packages/python
 alias:new activate python:activate
 alias:new deactivate python:deactivate
 
+edit:insert:binding['Ctrl-['] = { edit:location:start }
+
 fn relaunch []{ e:sudo kill -9 (ps -e | grep -e airportd -e SystemUI | grep -v grep | awk '{print $1}') }
+fn q []{ exit }
 
 -exports- = (alias:export)

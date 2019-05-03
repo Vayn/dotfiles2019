@@ -9,6 +9,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'dmix/elvish.vim', { 'on_ft': ['elvish'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'lotabout/skim', {
     \ 'dir': '~/.skim',
@@ -142,7 +143,12 @@ set ambiwidth=single
     "set columns=85
 "endif
 
-if (has("termguicolors"))
+if has("termguicolors") && $TERM != "xterm-256color"
+    " Fix bug for vim
+    set t_8f=^[[38;2;%lu;%lu;%lum
+    set t_8b=^[[48;2;%lu;%lu;%lum
+
+    "  设置终端真色彩
     set termguicolors
 endif
 
@@ -348,8 +354,8 @@ vnoremap <Leader>* "9y/<C-r>='\V'.substitute(escape(@9,'\/'),'\n','\\n','g')<cr>
 " 设默认 filetype 为 txt
 autocmd BufEnter * if &filetype == "" | setlocal ft=txt | endif
 
-" Tsuquyomi plugin
-autocmd FileType typescript setlocal completeopt+=menu,preview
+" Jump to the last position when reopening a file
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 autocmd BufReadPost *.rs setlocal filetype=rust
 
