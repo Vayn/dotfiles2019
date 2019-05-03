@@ -88,7 +88,7 @@ alias:new deactivate python:deactivate
 
 edit:insert:binding['Ctrl-['] = { edit:location:start }
 
-fn relaunch []{ e:sudo kill -9 (ps -e | grep -e airportd -e SystemUI | grep -v grep | awk '{print $1}') }
-fn q []{ exit }
+fn relaunch { e:sudo kill -9 (ps -e | grep -e airportd -e SystemUI | grep -v grep | awk '{print $1}') }
+fn q { exit }
 
 -exports- = (alias:export)
