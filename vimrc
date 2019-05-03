@@ -454,21 +454,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&
 nnoremap <leader>t :NERDTreeToggle<cr>
 " 2}}}
 
-" nerdtree-git-plugin {{{2
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-" End: nerdtree-git-plugin 2}}}
-
 " LanguageClient-neovim {{{2
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
