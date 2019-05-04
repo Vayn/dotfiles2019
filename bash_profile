@@ -8,4 +8,4 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 #[ -x /usr/local/bin/elvish ] && SHELL=/usr/local/bin/elvish exec /usr/local/bin/elvish
-[ -x /usr/local/bin/tmux ] && SHELL=/usr/local/bin/elvish exec tmux
+[ -x /usr/local/bin/tmux ] && SHELL=/usr/local/bin/elvish exec tmux new-session -A -s _default
