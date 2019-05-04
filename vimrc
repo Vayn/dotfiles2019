@@ -195,6 +195,7 @@ set cursorline
 "set cursorcolumn
 
 " highlight three columns after 'textwidth'
+set textwidth=80
 set colorcolumn=+1,+2,+3
 highlight ColorColumn ctermbg=237 guibg='#3c3836'
 
