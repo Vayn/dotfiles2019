@@ -26,8 +26,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 8
-    y: 4
+    x: 2
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -41,7 +41,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - buttonless: Title bar, transparent background and title bar buttons
   #     - transparent: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: buttonless
 
   # When true, alacritty starts maximized.
   start_maximized: false
@@ -74,7 +74,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
+tabspaces: 4
 
 # Font configuration (changes require restart)
 font:
@@ -162,10 +162,8 @@ colors:
     background: '0x2E3440'
     foreground: '0xD8DEE9'
   cursor:
-    #text: '0x2E3440'
-    #cursor: '0xD8DEE9'
-    text:   '0xf1c1c1'
-    cursor: '0xff2600'
+    text: '0x2E3440'
+    cursor: '0xD8DEE9'
   normal:
     black: '0x3B4252'
     red: '0xBF616A'
@@ -446,6 +444,7 @@ key_bindings:
   - { key: H,        mods: Command, action: Hide                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
+  - { key: N,        mods: Command, command: { program: "open", args: ["-nb", "io.alacritty"] } }
 
   - { key: Paste,                   action: Paste                        }
   - { key: Copy,                    action: Copy                         }
