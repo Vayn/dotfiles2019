@@ -22,6 +22,7 @@ alias:new ls e:exa --color-scale --git --group-directories-first
 alias:new more less
 alias:new vim nvim
 
+use completers
 use github.com/xiaq/edit.elv/smart-matcher
 smart-matcher:apply
 
