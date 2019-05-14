@@ -7,6 +7,10 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-#[ -x /usr/local/bin/elvish ] && SHELL=/usr/local/bin/elvish exec /usr/local/bin/elvish
-[ -x /usr/local/bin/tmux ] && SHELL=/usr/local/bin/elvish exec\
-    bash $HOME/.dotfiles/tmux.start.sh
+if [[ $TERM_PROGRAM = "Apple_Terminal" ]]
+then
+    [ -x /usr/local/bin/elvish ] && SHELL=/usr/local/bin/elvish exec /usr/local/bin/elvish
+else
+    [ -x /usr/local/bin/tmux ] && SHELL=/usr/local/bin/elvish exec\
+        bash $HOME/.dotfiles/tmux.start.sh
+fi
