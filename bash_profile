@@ -10,7 +10,8 @@ fi
 if [[ $TERM_PROGRAM = "Apple_Terminal" ]]
 then
     [ -x /usr/local/bin/elvish ] && SHELL=/usr/local/bin/elvish exec /usr/local/bin/elvish
-else
+elif [[ $TERM_PROGRAM != "vscode" ]]
+then
     [ -x /usr/local/bin/tmux ] && SHELL=/usr/local/bin/elvish exec\
         bash $HOME/.dotfiles/tmux.start.sh
 fi
