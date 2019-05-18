@@ -91,5 +91,6 @@ edit:insert:binding['Ctrl-['] = { edit:location:start }
 
 fn relaunch { e:sudo kill -9 (ps -e | grep -e airportd -e SystemUI | grep -v grep | awk '{print $1}') }
 fn q { exit }
+fn shortener [url code]{ curl -k --silent -i https://git.io -F url=$url -F code=$code }
 
 -exports- = (alias:export)
