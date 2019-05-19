@@ -66,7 +66,7 @@ alias:new cdb &use=[github.com/zzamboni/elvish-modules/dir] dir:cdb
 edit:insert:binding[Ctrl-Alt-i] = $dir:history-chooser~
 # Map as `Command-b` in Alacritty
 edit:insert:binding[Ctrl-Alt-b] = $dir:left-small-word-or-prev-dir~
-# Map as `Command-b` in Alacritty
+# Map as `Command-f` in Alacritty
 edit:insert:binding[Ctrl-Alt-f] = $dir:right-small-word-or-next-dir~
 
 use github.com/zzamboni/elvish-modules/terminal-title
