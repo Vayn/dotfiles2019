@@ -76,6 +76,15 @@ set winaltkeys=no
 set completeopt+=longest
 set cedit=<C-Y>
 
+" 工作目录 {{{2
+function! ChangeCurrentDir()
+    let _dir=escape(expand("%:p:h"),' ')
+    exec "cd " . _dir
+    unlet _dir
+endfunction
+autocmd BufEnter * call ChangeCurrentDir()
+" 2}}}
+
 " End: Regular Settings 1}}}
 
 
