@@ -488,7 +488,7 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler 
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 " End: skim.vim 2}}}
 
 " End: Plugins 1}}}

@@ -434,38 +434,19 @@ key_bindings:
   #- { key: Subtract, mods: Control, action: DecreaseFontSize             }
 
   # (macOS only)
-  - { key: Key0,     mods: Command, action: ResetFontSize                }
-  - { key: Equals,   mods: Command, action: IncreaseFontSize             }
-  - { key: Minus,    mods: Command, action: DecreaseFontSize             }
+  - { key: Key0,     mods: Command|Shift, action: ResetFontSize                }
+  - { key: Equals,   mods: Command|Shift, action: IncreaseFontSize             }
+  - { key: Minus,    mods: Command|Shift, action: DecreaseFontSize             }
+  - { key: H,        mods: Command|Shift, action: Hide                         }
+  - { key: Q,        mods: Command|Shift, action: Quit                         }
+  - { key: W,        mods: Command|Shift, action: Quit                         }
+  - { key: N,        mods: Command|Shift, command: { program: "open", args: ["-nb", "io.alacritty"] } }
   - { key: K,        mods: Command, action: ClearHistory                 }
   - { key: K,        mods: Command, chars: "\x0c"                        }
-  - { key: V,        mods: Command, action: Paste                        }
   - { key: C,        mods: Command, action: Copy                         }
-  - { key: H,        mods: Command, action: Hide                         }
-  - { key: Q,        mods: Command, action: Quit                         }
-  - { key: W,        mods: Command, action: Quit                         }
-  - { key: N,        mods: Command, command: { program: "open", args: ["-nb", "io.alacritty"] } }
+  - { key: V,        mods: Command, action: Paste                        }
 
-  # Tmux key bindings:
-  - { key: D,        mods: Command|Shift, chars: "\x19\x73" }
-  - { key: W,        mods: Command,       chars: "\x19\x78" }
-  - { key: J,        mods: Command,       chars: "\x19\x6a" }
-  - { key: L,        mods: Command,       chars: "\x19\x6c" }
-  - { key: T,        mods: Command,       chars: "\x19\x63" }
-  - { key: Key1,     mods: Command,       chars: "\x19\x31" }
-  - { key: Key2,     mods: Command,       chars: "\x19\x32" }
-  - { key: Key3,     mods: Command,       chars: "\x19\x33" }
-  - { key: Key4,     mods: Command,       chars: "\x19\x34" }
-  - { key: Key5,     mods: Command,       chars: "\x19\x35" }
-  - { key: Key6,     mods: Command,       chars: "\x19\x36" }
-  - { key: Key7,     mods: Command,       chars: "\x19\x37" }
-  - { key: Key8,     mods: Command,       chars: "\x19\x38" }
-  - { key: Key9,     mods: Command,       chars: "\x19\x39" }
-  - { key: Left,     mods: Command,       chars: "\x19\x48" }
-  - { key: Down,     mods: Command,       chars: "\x19\x4a" }
-  - { key: Up,       mods: Command,       chars: "\x19\x4b" }
-  - { key: Right,    mods: Command,       chars: "\x19\x4c" }
-
+  # Normal key bindings
   - { key: Paste,                   action: Paste                        }
   - { key: Copy,                    action: Copy                         }
   - { key: L,        mods: Control, action: ClearLogNotice               }
@@ -643,3 +624,33 @@ key_bindings:
   - { key: Key6,      mods: Alt|Shift, chars: "\x1b^"                    } # Alt + ^
   - { key: Backslash, mods: Alt,       chars: "\x1b\\"                   } # Alt + \
   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                    } # Alt + |
+
+  # `xxd -psd`
+  # `xxd` is a tool that creates a hex dump of a given file or standard input.
+  # https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/
+  #
+  # Tmux key bindings:
+  - { key: D,     mods: Command|Shift, chars: "\x19\x73" }
+  - { key: C,     mods: Command,       chars: "\x19\x63" } # Ctrl + y + c 创建窗口
+  - { key: W,     mods: Command,       chars: "\x19\x78" } # Ctrl + y + x 关闭窗口
+  - { key: J,     mods: Command,       chars: "\x19\x6a" }
+  - { key: L,     mods: Command,       chars: "\x19\x6c" }
+  - { key: Key1,  mods: Command,       chars: "\x19\x31" } # Ctrl + y + 1 切换 #1 窗口
+  - { key: Key2,  mods: Command,       chars: "\x19\x32" } # Ctrl + y + 2 切换 #2 窗口
+  - { key: Key3,  mods: Command,       chars: "\x19\x33" } # Ctrl + y + 3 切换 #3 窗口
+  - { key: Key4,  mods: Command,       chars: "\x19\x34" } # Ctrl + y + 4 切换 #4 窗口
+  - { key: Key5,  mods: Command,       chars: "\x19\x35" } # Ctrl + y + 5 切换 #5 窗口
+  - { key: Key6,  mods: Command,       chars: "\x19\x36" } # Ctrl + y + 6 切换 #6 窗口
+  - { key: Key7,  mods: Command,       chars: "\x19\x37" } # Ctrl + y + 7 切换 #7 窗口
+  - { key: Key8,  mods: Command,       chars: "\x19\x38" } # Ctrl + y + 8 切换 #8 窗口
+  - { key: Key9,  mods: Command,       chars: "\x19\x39" } # Ctrl + y + 9 切换 #9 窗口
+  - { key: Left,  mods: Command,       chars: "\x19\x48" }
+  - { key: Down,  mods: Command,       chars: "\x19\x4a" }
+  - { key: Up,    mods: Command,       chars: "\x19\x4b" }
+  - { key: Right, mods: Command,       chars: "\x19\x4c" }
+
+  # Elvish key bindings:
+  - { key: I, mods: Command, chars: "\x1b\x09" } # Ctrl + Alt + i 打开文件夹历史
+  - { key: F, mods: Command, chars: "\x1b\x06" } # Ctrl + Alt + f 调用后向历史
+  - { key: B, mods: Command, chars: "\x1b\x02" } # Ctrl + Alt + b 调用前向历史
+
