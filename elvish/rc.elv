@@ -91,8 +91,15 @@ alias:new deactivate python:deactivate
 
 edit:insert:binding['Ctrl-['] = { edit:location:start }
 
+# Set case-insensitive in location mode.
+# Thanks @zzamboni
+# https://t.me/elvish/18971
+# https://t.me/elvish/18972
+edit:location:matcher = [@a]{ edit:location:match-dir-pattern &ignore-case $@a }
+
 fn relaunch { e:sudo kill -9 (ps -e | grep -e airportd -e SystemUI | grep -v grep | awk '{print $1}') }
 fn q { exit }
-fn shortener [url code]{ curl -k --silent -i https://git.io -F url=$url -F code=$code }
+fn shortener [url]{ curl -k --silent -i https://git.io -F url=$url }
+fn shortener1 [url code]{ curl -k --silent -i https://git.io -F url=$url -F code=$code }
 
 -exports- = (alias:export)
